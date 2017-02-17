@@ -1,7 +1,6 @@
 .puzzle {
-    background-image:url("https://upload.wikimedia.org/wikipedia/commons/c/c2/Jimmer_Fredette_Kings.jpg");
-    width:100px;
-    height:100px;
+    width:250px;
+    height:150px;
 }
 
 .piece1 {
@@ -9,9 +8,35 @@
 }
 
 .piece2 {
-    background-position:-100px 0px;
+    background-position:-250px 0px;
 }
 
 .piece3 {
-    background-position:-200px 0px;
+    background-position:-500px 0px;
 }
+
+.piece4 {
+    background-position: 0px -150px;
+}
+
+.piece5 {
+    background-position: -250px -150px;
+}
+
+.piece6 {
+    background-position: -500px -150px;
+}
+
+.piece7 {
+    background-position: -0px -300px;
+}
+
+.piece8 {
+    background-position:-250px -300px;
+}
+
+.piece9 {
+    background-position:-500px -300px;
+}
+
+
