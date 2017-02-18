@@ -41,5 +41,9 @@
 
 .col-xs-4 {
     padding: 0px;
-    max-width: 250px;
+    width: 250px;
+}
+
+.img-rows {
+    width: 750px;
 }
