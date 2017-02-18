@@ -22,8 +22,8 @@
         <div class="row">
             <div class="col-xs-2"></div>
             <div class="col-xs-8">
-                <div class="row img-rows">
-                    <div class="col-xs-4 drop-pos" position="1" ng-drop="true" ng-repeat="obj in imgPcs">
+                <div id="img-Puzzle" class="row">
+                    <div class="col-xs-4 drop-pos" position="{{obj.position}}" ng-drop="true" ng-repeat="obj in imgPcs" ng-init="outerIndex = $index">
                         <img class="puzzle piece{{obj.position}}" ng-drag="true" style="background-image: url('{{obj.url}}');"/>
                     </div>
                 </div>

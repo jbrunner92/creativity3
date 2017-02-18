@@ -4,17 +4,21 @@ app.controller('puzzleCtrl', function puzzleController($scope) {
     $scope.imgs = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"];
     $scope.imgPcs = [];
 
+    for (var i = 0; i < 9; i++) {
+        var pzlPc = {
+            position: i + 1,
+            url: ''
+        };
+
+        $scope.imgPcs.push(pzlPc);
+    }
+
     $scope.createPuzzle = function() {
         $scope.img = $scope.imgs[Math.floor(Math.random() * $scope.imgs.length)];
 
-        for (var i = 0; i < 9; i++) {
-            var pzlPc = {
-                position: i + 1,
-                url: $scope.img
-            };
-
-            $scope.imgPcs.push(pzlPc);
-        }
+        $scope.imgPcs.forEach(function(imgPc) {
+            imgPc.url = $scope.img;
+        });
     };
 
     $scope.randomizeImgPositions = function() {
