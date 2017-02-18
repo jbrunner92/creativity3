@@ -39,4 +39,7 @@
     background-position:-500px -300px;
 }
 
-
+.col-xs-4 {
+    padding: 0px;
+    max-width: 250px;
+}
