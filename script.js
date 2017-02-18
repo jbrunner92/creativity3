@@ -14,5 +14,12 @@ app.controller('puzzleCtrl', function puzzleController($scope) {
         });
     };
 
+    $scope.randomizeImgPositions = function() {
+        //code to randomly rearrange the <img>'s so their position='i' is not the same as their div parent
+    }
+
+    //Some code to be able to drag and drop...
+
     $scope.createPuzzle();
+    $scope.randomizeImgPositions();
 });
