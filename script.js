@@ -2,16 +2,19 @@ var app = angular.module('app', ['ngDraggable']);
 
 app.controller('puzzleCtrl', function puzzleController($scope) {
     $scope.imgs = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"];
+    $scope.imgPcs = [];
 
     $scope.createPuzzle = function() {
-        $scope.img = $scope.imgs[Math.floor(Math.random()* $scope.imgs.length)];
+        $scope.img = $scope.imgs[Math.floor(Math.random() * $scope.imgs.length)];
 
-        var i = 1;
-        $('.puzzle').each(function () {
-            $(this).attr('position', i);
-            $(this).css('backgroundImage', "url(" + $scope.img + ")");
-            i++;
-        });
+        for (var i = 0; i < 9; i++) {
+            var pzlPc = {
+                position: i + 1,
+                url: $scope.img
+            };
+
+            $scope.imgPcs.push(pzlPc);
+        }
     };
 
     $scope.randomizeImgPositions = function() {
