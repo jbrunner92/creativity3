@@ -19,16 +19,17 @@ app.controller('puzzleCtrl', function puzzleController($scope) {
         $scope.imgPcs.forEach(function(imgPc) {
             imgPc.url = $scope.img;
         });
-        
+
         $scope.randomizeImgPositions();
     };
 
     $scope.randomizeImgPositions = function() {
-       for (var numbers = [1, 2 , 3, 4, 5, 6, 7, 8, 9, 10], i = numbers.length; i--; ) {
-            var random = numbers.splice(Math.floor(Math.random() * (i + 1)), 1)[0];
-           $scope.imgPcs[i - 1].position = random;
-            console.log(random);
-       }
+        var numbers = [1, 2 , 3, 4, 5, 6, 7, 8, 9]
+
+        for (var  i = numbers.length; i > 0 ; i--) {
+            var random = numbers.splice(Math.floor(Math.random() * (i)), 1)[0];
+            $scope.imgPcs[i - 1].position = random;
+        }
     }
 
 
@@ -46,7 +47,6 @@ app.controller('puzzleCtrl', function puzzleController($scope) {
         }
 
         $scope.createPuzzle();
-        $scope.randomizeImgPositions();
     };
 
 })
