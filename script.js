@@ -4,9 +4,10 @@ app.controller('puzzleCtrl', function puzzleController($scope) {
     $scope.imgs = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"];
     $scope.imgPcs = [];
     
-    for (var i = 0; i < 9; i++) {
+    for (var i = 1; i < 10; i++) {
         var pzlPc = {
-            position: i + 1,
+            finalPos: i,
+            position: i,
             url: ''
         };
 
@@ -24,7 +25,7 @@ app.controller('puzzleCtrl', function puzzleController($scope) {
     };
 
     $scope.randomizeImgPositions = function() {
-        var numbers = [1, 2 , 3, 4, 5, 6, 7, 8, 9]
+        var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
         for (var  i = numbers.length; i > 0 ; i--) {
             var random = numbers.splice(Math.floor(Math.random() * (i)), 1)[0];
@@ -32,18 +33,18 @@ app.controller('puzzleCtrl', function puzzleController($scope) {
         }
     }
 
-
     $scope.init = function() {
         var imagediv = document.getElementsByClassName("puzzle");
         var imgarray = new Array("image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg");
         var spot = Math.floor(Math.random()*imgarray.length);
         for(var i=0;i<imagediv.length;i++){
             imagediv[i].style.backgroundImage="url(" + imgarray[spot] + ")";
-
         }
 
         $scope.onDropComplete = function(data, event) {
-            console.log(data, event, this);
+            var tempPos = data.position;
+            data.position = this.obj.position;
+            this.obj.position = tempPos;
         }
 
         $scope.createPuzzle();
