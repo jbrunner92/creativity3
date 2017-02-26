@@ -33,18 +33,24 @@ app.controller('puzzleCtrl', function puzzleController($scope) {
         }
     }
 
+    $scope.isComplete = function() { /* Check if imgPcs positions match up with finalPos */
+        console.log("here");
+    }
+
+    $scope.onDropComplete = function(data, event) {
+        var tempPos = data.position;
+        data.position = this.obj.position;
+        this.obj.position = tempPos;
+
+        $scope.isComplete();
+    }
+
     $scope.init = function() {
         var imagediv = document.getElementsByClassName("puzzle");
         var imgarray = new Array("image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg");
         var spot = Math.floor(Math.random()*imgarray.length);
         for(var i=0;i<imagediv.length;i++){
             imagediv[i].style.backgroundImage="url(" + imgarray[spot] + ")";
-        }
-
-        $scope.onDropComplete = function(data, event) {
-            var tempPos = data.position;
-            data.position = this.obj.position;
-            this.obj.position = tempPos;
         }
 
         $scope.createPuzzle();
