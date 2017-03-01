@@ -4,6 +4,25 @@
     background-size: 750px 450px;
 }
 
+#img-Puzzle {
+    min-width: 351px;
+}
+
+#alerts {
+    position: absolute;
+    top: 0;
+    z-index:1;
+    bottom:0;
+    height:100%;
+}
+
+.grey-out {
+    opacity: .5;
+    background-color: grey;
+    width: 750px;
+    height: 450px;
+}
+
 #piece1 {
     background-position:0 0;
 }
@@ -41,10 +60,12 @@
 }
 
 .col-xs-4 {
-    padding: 0px;
     width: 250px;
-    height: 150px;
+}
 
+.drop-pos {
+    padding: 0px;
+    height: 150px;
 }
 
 .dragging {
@@ -60,8 +81,16 @@
         background-size: 645px 387px;
     }
 
+    .grey-out {
+        width: 645px;
+        height: 387px;
+    }
+
     .col-xs-4 {
         width:215px;
+    }
+
+    .drop-pos {
         height:129px;
     }
 
@@ -107,8 +136,16 @@
         background-size: 468px 282px;
     }
 
+    .grey-out {
+        width: 468px;
+        height: 282px;
+    }
+
     .col-xs-4 {
         width:156px;
+    }
+
+    .drop-pos {
         height:94px;
     }
 
@@ -154,8 +191,20 @@
         background-size: 351px 210px;
     }
 
+    .grey-out {
+        width: 351px;
+        height: 210px;
+    }
+
     .col-xs-4 {
         width:117px;
+    }
+
+    .alert {
+        padding: 0px;
+    }
+
+    .drop-pos {
         height:70px;
     }
 
@@ -193,52 +242,5 @@
 
     #piece9 {
         background-position:-234px -140px;
-    }
-}
-
-@media (max-width: 527px) {
-    .puzzle {
-        background-size: 264px 159px;
-    }
-
-    .col-xs-4 {
-        width:88px;
-        height:53px;
-    }
-
-    #piece1 {
-        background-position:0 0;
-    }
-
-    #piece2 {
-        background-position:-88px 0px;
-    }
-
-    #piece3 {
-        background-position:-176px 0px;
-    }
-
-    #piece4 {
-        background-position: 0px -53px;
-    }
-
-    #piece5 {
-        background-position: -88px -53px;
-    }
-
-    #piece6 {
-        background-position: -176px -53px;
-    }
-
-    #piece7 {
-        background-position: -0px -106px;
-    }
-
-    #piece8 {
-        background-position:-88px -106px;
-    }
-
-    #piece9 {
-        background-position:-176px -106px;
     }
 }

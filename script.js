@@ -16,9 +16,10 @@ app.controller('puzzleCtrl', function puzzleController($scope) {
     }
 
     $scope.createPuzzle = function() {
-        $('#success-alert').fadeOut();
+        $('#alerts').hide();
+        $('#img-Puzzle').removeClass('grey-out');
         $scope.draggable = true;
-        //unfreeze
+
         $scope.img = $scope.imgs[Math.floor(Math.random() * $scope.imgs.length)];
         
         $scope.imgPcs.forEach(function(imgPc) {
@@ -52,7 +53,8 @@ app.controller('puzzleCtrl', function puzzleController($scope) {
         
         if (success)
         {
-            $('#success-alert').fadeIn();
+            $('#alerts').show();
+            $('#img-Puzzle').addClass('grey-out');
             $scope.draggable = false;
         }
     }

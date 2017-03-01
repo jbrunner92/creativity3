@@ -15,16 +15,21 @@
 </head>
 
 <body ng-controller="puzzleCtrl" data-ng-init="init()">
-
-    <header class="text-center" style="margin: 30px;">
-        <h1>Puzzle</h1>
-        <button class="btn btn-default" ng-click="createPuzzle()">Generate Random Puzzle</button>
-        <div id="success-alert" class="alert alert-success" style="display: none; margin-top: 20px; margin-left: 20%; margin-right: 20%;">AWESOME!! YOU DID IT!!</div>
-    </header>
     <div class="container">
-        <div class="row">
+        <header class="text-center" style="margin: 30px;">
+            <h1>Puzzle</h1>
+            <button class="btn btn-default" ng-click="createPuzzle()">Generate Random Puzzle</button>
+        </header>
+        <div class="row text-center" style="margin-bottom: 15px;">
+            <h3 class="col-xs-12" style="color: olivedrab">Drag and Drop the pieces over each other to rearrange them!</h3>
+        </div>
+        <div class="row" style="margin-bottom: 15px;">
             <div class="col-xs-2"></div>
             <div class="col-xs-8">
+                <div class="row text-center" id="alerts" style="display: none;">
+                    <div class="col-xs-4"></div>
+                    <div id="success-alert" class="alert alert-success text-center col-xs-4">Congratulations!</div>
+                </div>
                 <div id="img-Puzzle" class="row">
                     <div class="col-xs-4 drop-pos" ng-drop="{{draggable}}" ng-repeat="obj in imgPcs" ng-init="outerIndex = $index" ng-drop-success="onDropComplete($data, $event)">
                         <img id="piece{{obj.position}}" class="puzzle" ng-drag="draggable" ng-drag-data="obj" data-allow-transform="true" style="background-image: url('{{obj.url}}');"/>
