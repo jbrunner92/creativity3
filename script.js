@@ -3,6 +3,7 @@ var app = angular.module('app', ['ngDraggable']);
 app.controller('puzzleCtrl', function puzzleController($scope) {
     $scope.imgs = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"];
     $scope.imgPcs = [];
+    $scope.draggable = true;
     
     for (var i = 1; i < 10; i++) {
         var pzlPc = {
@@ -15,6 +16,9 @@ app.controller('puzzleCtrl', function puzzleController($scope) {
     }
 
     $scope.createPuzzle = function() {
+        $('#success-alert').fadeOut();
+        $scope.draggable = true;
+        //unfreeze
         $scope.img = $scope.imgs[Math.floor(Math.random() * $scope.imgs.length)];
         
         $scope.imgPcs.forEach(function(imgPc) {
@@ -48,11 +52,9 @@ app.controller('puzzleCtrl', function puzzleController($scope) {
         
         if (success)
         {
-            console.log("success");
+            $('#success-alert').fadeIn();
+            $scope.draggable = false;
         }
-        
-        
-        console.log("here");
     }
 
     $scope.onDropComplete = function(data, event) {
