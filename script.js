@@ -34,6 +34,24 @@ app.controller('puzzleCtrl', function puzzleController($scope) {
     }
 
     $scope.isComplete = function() { /* Check if imgPcs positions match up with finalPos */
+        
+        var success = true;
+        
+        for (i=0; i<$scope.imgPcs.length; i++)
+        {
+            if ($scope.imgPcs[i].position !== $scope.imgPcs[i].finalPos)
+            {
+                success = false; 
+                break;
+            }
+        }
+        
+        if (success)
+        {
+            console.log("success");
+        }
+        
+        
         console.log("here");
     }
 
